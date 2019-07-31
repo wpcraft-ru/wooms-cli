@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  * Autobot ClientEmptyEraser
  *
  * example command for wp cli:
- * wp wooms_remove_clients --limit=100 --name="Клиент по заказу №68836"
+ * wp wooms_remove_empty_clients --limit=100 --name="Клиент по заказу №68836"
  */
 final class ClientEmptyEraser
 {
@@ -20,7 +20,7 @@ final class ClientEmptyEraser
 
         if ( defined( 'WP_CLI' ) && WP_CLI ) {
             self::$cli = true;
-            \WP_CLI::add_command( 'wooms_remove_clients', function($args, $assoc_args){
+            \WP_CLI::add_command( 'wooms_remove_empty_clients', function($args, $assoc_args){
                 if(!empty((int)$assoc_args['limit'])){
                     self::$limit = (int)$assoc_args['limit'];
                 }
